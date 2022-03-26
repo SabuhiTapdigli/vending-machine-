@@ -5,15 +5,26 @@ import Itemid from './ItemId';
 import Numpad from './Numpad';
 import DisplayScreen from './DisplayScreen'
 import Cancelbtn from './Cancelbtn';
+import Products from './Products';
 const VendorMachine = ({data}) =>{
     const [ids,setids] = useState([])
     return(
         <Container>
             <Machine_img src={Machine} alt='Vendor-Machine'/>
             <DisplayScreen/>
-            <Itemid/>
+            <Itemidwrapper>
+                {data.map((item,index)=>(
+                    <Itemid key={index} item = {item}/>
+                ))}
+            </Itemidwrapper>
+            <ImgWrapper>
+                {data.map((item,index)=>(
+                    <Products key = {index} item = {item}/>
+                ))}
+            </ImgWrapper>
             <Numpad/>
             <Cancelbtn/>
+            
         </Container>
     )
 }
@@ -21,7 +32,6 @@ const VendorMachine = ({data}) =>{
 const Container = styled.div`
     height:750px;
     width:500px;
-    margin:auto;
     position:relative;
 `
 
@@ -29,6 +39,28 @@ const Machine_img = styled.img`
     width:100%;
     height:100%;
     position:relative;
+`
+
+const Itemidwrapper = styled.div`
+    position:absolute;
+    top: 111px;
+    left: 38px;
+    div:not(:first-child){
+        margin-top: 31px;
+    }
+    z-index:1;
+`
+const ImgWrapper = styled.div`
+    position:absolute;
+    top: 52px;
+    left: 27.5px;
+    z-index:0;
+    // div:first-child{
+    //     margin-bottom:10px;
+    // }
+    div:not(:first-child){
+        margin-top: 10px;
+    }
 `
 
 

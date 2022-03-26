@@ -39,6 +39,9 @@ const Number = styled.div`
     &:active{
         background-color:red;
     }
+    &:last-child:active{
+        background-color:green;
+    }
 `
 
 

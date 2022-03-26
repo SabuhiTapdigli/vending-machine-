@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-const Itemid = () =>{
+const Itemid = ({item}) =>{
     return(
         <Wrapper>
-            <span>11</span>
-            <span>11</span>
-            <span>11</span>
-            <span>11</span>
-            <span>11</span>
+            {item.map((i)=>
+                <span key={i.id}>{i.id}</span>
+            )}
         </Wrapper>
     )
 }
@@ -18,6 +16,11 @@ const Wrapper = styled.div`
         color:white;
         background-color:black;
         border: 1px solid white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin:16px;
+
     }
     
 

@@ -21,7 +21,7 @@ const Display_Bg = styled.div`
     span{
         position:absolute;
         top:13px;
-        right:30px;
+        right:45px;
         font-size:25px;
         color:red
     }

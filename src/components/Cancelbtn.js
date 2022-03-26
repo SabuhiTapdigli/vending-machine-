@@ -1,18 +1,19 @@
 import styled from 'styled-components'
+import cancel_btn from '../assets/cancel-button.png'
 const Cancelbtn = () => {
     return(
-        <Cancel>C</Cancel>
+        <Cancel><img src={cancel_btn} alt='cancel-btn'/></Cancel>
     )
 }
 
 const Cancel = styled.div`
     position:absolute;
-    top: 171px;
-    right: 53px;
-    font-size: 20px;
-    padding: 2px 8px;
-    background-color: black;
-    color: red;
-    border-radius: 4px;
+    top: 169px;
+    right: 51px;
+    img{
+        height:29px;
+    }
+    cursor:pointer;
+}
 `
 export default Cancelbtn 
