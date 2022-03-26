@@ -43,7 +43,6 @@ function App() {
     ]
   ])
   const [coins,setcoins] = useState(0)
-  console.log('app data',data)
   return (
     <Container>
         <VendorMachine data={data} setdata = {setdata} coins={coins} setcoins={setcoins}/>

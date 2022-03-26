@@ -1,13 +1,12 @@
 
 import styled from 'styled-components';
-import mars from '../assets/mars.png'
-import snickers from '../assets/snickers.png'
-import bomba from '../assets/bomba.png'
 
-const Pushproduct = () => {
+const Pushproduct = ({buy}) => {
+    console.log(buy)
+    const product_img = '../assets/';
     return(
         <Wrapper>
-            <img src={mars} alt='mars'/>
+                {buy.cond && <img src={`${product_img}${buy.product}.png`} alt='product'/> }
         </Wrapper>
     )
 }

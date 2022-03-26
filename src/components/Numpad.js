@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {useEffect} from 'react'
 
-const Numpad = ({id,setid,data,setdata,coins,setcoins}) => {
+const Numpad = ({id,setid,data,setdata,coins,setcoins,buy,setbuy}) => {
     const numhandler = (e) => {
         setid(id+e.target.id)
     }
@@ -12,10 +12,17 @@ const Numpad = ({id,setid,data,setdata,coins,setcoins}) => {
         console.log(id)
         const arr = data.map((i)=>i.filter((filtered)=>{
             console.log('ok')
-            if(filtered.id === id &&  filtered.price <= coins ){
+            if(filtered.id === id &&  filtered.price <= coins && filtered.item_count!=0 ){
                 filtered['item_count'] = Number(filtered.item_count)-1
                 setcoins(coins-filtered.price)
                 setid('')
+                setbuy({cond:true,product:filtered.item_name})
+
+                const time = setTimeout(() => {
+                    setbuy(false)
+                    console.log('in set',buy)
+                }, 3000);
+                
             }
             return data
         }))

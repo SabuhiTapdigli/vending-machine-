@@ -9,6 +9,7 @@ import Products from './Products';
 import Pushproduct from './Pushproduct';
 const VendorMachine = ({data,setdata,coins,setcoins}) =>{
     const [id,setid] = useState('')
+    const [buy,setbuy] = useState({cond:false})
     return(
         <Container>
             <Machine_img src={Machine} alt='Vendor-Machine'/>
@@ -23,9 +24,9 @@ const VendorMachine = ({data,setdata,coins,setcoins}) =>{
                     <Products key = {index} item = {item}/>
                 ))}
             </ImgWrapper>
-            <Numpad id={id} setid={setid} data={data} setdata={setdata} coins={coins} setcoins={setcoins}/>
+            <Numpad id={id} setid={setid} data={data} setdata={setdata} coins={coins} setcoins={setcoins} buy = {buy} setbuy={setbuy}/>
             <Cancelbtn setcoins={setcoins}/>
-            <Pushproduct/>
+            <Pushproduct buy={buy}/>
         </Container>
     )
 }
