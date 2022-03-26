@@ -1,20 +1,44 @@
 import styled from 'styled-components'
+import {useEffect} from 'react'
 
-const Numpad = () => {
+const Numpad = ({id,setid,data,setdata,coins,setcoins}) => {
+    const numhandler = (e) => {
+        setid(id+e.target.id)
+    }
+    const clearhandler = () => {
+        setid('')
+    }
+    const okhandler = () => {
+        console.log(id)
+        const arr = data.map((i)=>i.filter((filtered)=>{
+            console.log('ok')
+            if(filtered.id === id &&  filtered.price <= coins ){
+                filtered['item_count'] = Number(filtered.item_count)-1
+                setcoins(coins-filtered.price)
+                setid('')
+            }
+            return data
+        }))
+        setdata(arr)
+        console.log('coins',coins)
+    }
+  
+    
+
     return(
         <Numpad_wrapper>
-            <Number>1</Number>
-            <Number>2</Number>
-            <Number>3</Number><br/>
-            <Number>4</Number>
-            <Number>5</Number>
-            <Number>6</Number><br/>
-            <Number>7</Number>
-            <Number>8</Number>
-            <Number>9</Number><br/>
-            <Number>C</Number>
-            <Number>0</Number>
-            <Number>OK</Number>
+            <Num id='1' onClick={numhandler}>1</Num>
+            <Num id='2' onClick={numhandler}>2</Num>
+            <Num id='3' onClick={numhandler}>3</Num><br/>
+            <Num id='4' onClick={numhandler}>4</Num>
+            <Num id='5' onClick={numhandler}>5</Num>
+            <Num id='6' onClick={numhandler}>6</Num><br/>
+            <Num id='7' onClick={numhandler}>7</Num>
+            <Num id='8' onClick={numhandler}>8</Num>
+            <Num id='9' onClick={numhandler}>9</Num><br/>
+            <Num onClick={clearhandler}>C</Num>
+            <Num id='0' onClick={numhandler}>0</Num>
+            <Num onClick={okhandler}>OK</Num>
         </Numpad_wrapper>
     )
 }
@@ -23,9 +47,9 @@ const Numpad_wrapper = styled.div`
     top:230px;
     right:41px;
 `
-const Number = styled.div`
+const Num = styled.div`
     color:black;
-    background-color:gray;
+    background-color:#e6e5e3;
     border-radius:50%;
     height: 13px;
     width: 13px;

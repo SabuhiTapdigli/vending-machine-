@@ -1,11 +1,11 @@
 
 import styled from 'styled-components'
 import display_bg from '../assets/display-bg.png'
-const DisplayScreen = () => {
+const DisplayScreen = ({coins}) => {
     return(
         <Display_Bg>
             <img src={display_bg} ald='Display'/>
-            <span>150</span>
+            <span>{coins}</span>
         </Display_Bg>
     )
 }
@@ -21,7 +21,7 @@ const Display_Bg = styled.div`
     span{
         position:absolute;
         top:13px;
-        right:45px;
+        right:35px;
         font-size:25px;
         color:red
     }

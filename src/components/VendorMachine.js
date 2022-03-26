@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import styled from 'styled-components'
 import Machine from '../assets/vendor-machine.png';
 import Itemid from './ItemId';
@@ -6,12 +6,13 @@ import Numpad from './Numpad';
 import DisplayScreen from './DisplayScreen'
 import Cancelbtn from './Cancelbtn';
 import Products from './Products';
-const VendorMachine = ({data}) =>{
-    const [ids,setids] = useState([])
+import Pushproduct from './Pushproduct';
+const VendorMachine = ({data,setdata,coins,setcoins}) =>{
+    const [id,setid] = useState('')
     return(
         <Container>
             <Machine_img src={Machine} alt='Vendor-Machine'/>
-            <DisplayScreen/>
+            <DisplayScreen coins={coins}/>
             <Itemidwrapper>
                 {data.map((item,index)=>(
                     <Itemid key={index} item = {item}/>
@@ -22,9 +23,9 @@ const VendorMachine = ({data}) =>{
                     <Products key = {index} item = {item}/>
                 ))}
             </ImgWrapper>
-            <Numpad/>
-            <Cancelbtn/>
-            
+            <Numpad id={id} setid={setid} data={data} setdata={setdata} coins={coins} setcoins={setcoins}/>
+            <Cancelbtn setcoins={setcoins}/>
+            <Pushproduct/>
         </Container>
     )
 }

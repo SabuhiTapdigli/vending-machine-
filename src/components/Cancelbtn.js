@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import cancel_btn from '../assets/cancel-button.png'
-const Cancelbtn = () => {
+const Cancelbtn = ({setcoins}) => {
+    const cancelorder = () => {
+        setcoins(0)
+    }
     return(
-        <Cancel><img src={cancel_btn} alt='cancel-btn'/></Cancel>
+        <Cancel onClick={cancelorder}><img src={cancel_btn} alt='cancel-btn'/></Cancel>
     )
 }
 

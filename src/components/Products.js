@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Numpad from './Numpad';
 
 const Products = ({item}) =>{
     const product_img = '../assets/';
